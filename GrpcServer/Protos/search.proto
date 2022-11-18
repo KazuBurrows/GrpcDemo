@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServer";
+
+
+// Service function
+service BookSearch {
+	// Set retunrns to stream to recieve more than 1 BookModel
+	rpc GetBookInfo (BookSearchRequest) returns (stream BookModel);
+}
+
+
+// What I send
+message BookSearchRequest {
+}
+
+
+// What I recieve
+message BookModel {
+	string title = 1;
+	string author = 2;
+	double price = 3;
+
+}
+
